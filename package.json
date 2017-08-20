@@ -4,8 +4,11 @@
   "private": true,
   "main": "electron-main.js",
   "dependencies": {
+    "grommet": "^1.6.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-player": "^0.20.0",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",

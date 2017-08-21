@@ -7,3 +7,48 @@ body {
   font-family: 'Source Sans Pro';
   font-weight: 400;
 }
+
+.grommetux-button--focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+input[type=range] {
+  box-sizing: border-box;
+  font-size: 8px;
+  line-height: 1;
+  height: 2em;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+input[type=range]:hover::-webkit-slider-thumb {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+input[type=range]:active::-webkit-slider-thumb {
+  border-color: #ffffff;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  height: 1em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}

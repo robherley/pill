@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Split, Box } from 'grommet';
 import styled from 'styled-components';
+import { connect } from "react-redux";
 
 import Left from './Left';
 import Right from './Right';
+import { fetchPlaylist } from '../actions/';
 
 const DragBar = styled.div`
   position: absolute;
-  // background-color: red;
   height: 25px;
   width: 100%;
   margin-bottom: 25px;
@@ -16,6 +17,10 @@ const DragBar = styled.div`
 `
 
 class App extends Component {
+  componentWillMount(){
+    this.props.fetchPlaylist('PLiWEGBoM5mExxz8Ag8S_U0bNXU6fiXI2z')
+  }
+
   render() {
     return (
       <div>
@@ -31,8 +36,7 @@ class App extends Component {
           </Box>
            <Box 
             full
-            colorIndex='light-2'
-            justify='center'
+            colorIndex='grey-3'
             >
             <Right />
           </Box> 
@@ -42,4 +46,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  playlist: state.playlist
+})
+
+export default connect(mapStateToProps, { fetchPlaylist })(App);

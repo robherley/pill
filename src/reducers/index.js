@@ -1,11 +1,13 @@
 import playlist from './playlist';
 import video from './video';
+import volume from './volume';
 
 import { combineReducers } from 'redux';
 
 export default combineReducers({
     playlist,
-    video
+    video,
+    volume
 })
 
 /*

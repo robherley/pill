@@ -17,3 +17,23 @@ export const fetchPlaylist = (playlistID) => {
     .catch(err => dispatch({ type: 'ERROR_FETCHING', payload: err}))
   }
 }
+
+export const changeVolume = (newVolume) => {
+  return {
+    type: 'UPDATE_VOLUME',
+    payload: newVolume
+  }
+}
+
+export const changeVideoIndex = (newIndex) => {
+  return {
+    type: 'CHANGE_VIDEO_INDEX',
+    payload: newIndex
+  }
+}
+
+export const pausePlay = () => {
+  return {
+    type: 'PAUSE_PLAY'
+  }
+}

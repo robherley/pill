@@ -37,6 +37,10 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 
+  // mainWindow.webContents.on("will-navigate", (e, url) => { 
+  //   e.preventDefault();
+  // })
+
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
     // Dereference the window object, usually you would store windows
@@ -44,6 +48,7 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
 }
 
 // This method will be called when Electron has finished

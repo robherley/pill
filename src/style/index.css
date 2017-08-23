@@ -1,16 +1,25 @@
-@import '../font/fonts.css';
 @import '../../node_modules/grommet/grommet.min.css';
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Source Sans Pro';
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
-
+ 
 .grommetux-button--focus {
   border: none !important;
   box-shadow: none !important;
+} 
+
+.grommetux-box--focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.grommetux-list-item:focus{
+  outline: none !important
 }
 
 input[type=range] {

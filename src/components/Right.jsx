@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import _ from 'lodash';
 import { connect } from "react-redux";
+import { changeVideoIndex } from '../actions/';
 import {
   List,
   ListItem,
@@ -23,15 +24,29 @@ const BoxFooter = styled(Box)`
 const SongTitle = styled.span`
   font-size: 14px;
   font-weight: 300;
+`
+
+const StyledListItem = styled(ListItem)`
+  opacity: ${props => props.selected? '1' : '0.5'
+  };
+
   &:hover{
-    font-weight: 400;
+    background-color: rgba(255,255,255,0.1)
   }
 `
 
 class Right extends Component {
+  renderListItem(index, title){
+    return (
+      <StyledListItem selected={index === this.props.video.index} justify="between" key={index} onClick={() => this.props.changeVideoIndex(index)} separator={index === this.props.video.index ? "horizontal" : 'none'}>
+        <SongTitle>{title}</SongTitle>
+      </StyledListItem>
+    )
+  }
+
   render() {
     const { items } = this.props.playlist;
-    let videoIndex = 1;
+    let videoIndex = 0;
     return (
       <div>
         <Header style={{ height: "20vh" }} justify="center">
@@ -43,6 +58,7 @@ class Right extends Component {
           >
             <Title style={{ marginLeft: "10px" }}>Proximity Uploads</Title>
             <Button
+              plain
               icon={<ActionsIcon />}
               onClick={() => console.log("hi")}
             />
@@ -50,15 +66,8 @@ class Right extends Component {
         </Header>
         <List style={{ height: "70vh" }}>
            {_.map(items, item => 
-           videoIndex === 1?
-            <ListItem justify="between" key={++videoIndex} separator="horizontal">
-              <SongTitle>{item.snippet.title}</SongTitle>
-            </ListItem>
-            :
-            <ListItem justify="between" key={++videoIndex}>
-              <SongTitle>{item.snippet.title}</SongTitle>
-            </ListItem>
-          )} 
+            this.renderListItem(videoIndex++, item.snippet.title)
+           )}
         </List>
         <Footer style={{ height: "10vh" }} justify="center">
           <BoxFooter colorIndex="neutral-4">
@@ -72,7 +81,8 @@ class Right extends Component {
 }
 
 const mapStateToProps = state => ({
-  playlist: state.playlist
+  playlist: state.playlist,
+  video: state.video
 })
 
-export default connect(mapStateToProps, null)(Right);
+export default connect(mapStateToProps, { changeVideoIndex })(Right);

@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "grommet": "^1.6.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.16",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-player": "^0.20.0",
